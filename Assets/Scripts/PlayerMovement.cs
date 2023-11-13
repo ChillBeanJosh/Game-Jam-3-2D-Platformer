@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer); //Condition that only allows Jump While On a "Ground" Layer.
     }
 
-    private void Flip()
+    private void Flip() //flips the player left and right, but iffy with projectiles (Needs Fixing).
     {
         if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
         {
