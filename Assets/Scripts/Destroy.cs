@@ -7,7 +7,7 @@ public class Destroy : MonoBehaviour
  public int health;
 //Used for destroyable surfaces NOT enemies.
 
- public void TakeDamage (int damage) //Causes Object to take damage based on the Projectile Damage.
+ public void TakeDamage (int damage) //Causes Object to take damage based on the Projectile Damage [LOOK AT MANA PREFAB].
  {
     health -= damage;
  

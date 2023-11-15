@@ -7,7 +7,9 @@ public class Enemy : MonoBehaviour
  
  public int maxHealth;
  int currentHealth;
+
  //Used for Enemies NOT destroyable surfaces.
+ //Same as Destroy script but for enemies.
 
     void Start()
     {

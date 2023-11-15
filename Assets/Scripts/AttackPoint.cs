@@ -28,7 +28,7 @@ public class AttackPoint : MonoBehaviour
     {
         if (Time.time > nextFire)
         {
-            nextFire = Time.time + fireRate;
+            nextFire = Time.time + fireRate; //Controls the time it takes to shoot.
         
             Instantiate(manaPrefab, firePoint.position, firePoint.rotation); //Causes the Projectile to Spawn at the firePoint Transformation.
         }
