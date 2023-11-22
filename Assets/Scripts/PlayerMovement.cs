@@ -25,12 +25,23 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
 
-        Flip();
+
+
+        if(horizontal < 0 && isFacingRight)  //uses to flip the player left and right
+        {
+            Flip();
+        }
+        else if (horizontal > 0 && !isFacingRight)
+        {
+            Flip();
+        }
     }
 
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y); //Gives The Player Force To Move.
+
+
     }
 
     private bool IsGrounded()
@@ -40,13 +51,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Flip() //flips the player left and right, but iffy with projectiles (Needs Fixing).
     {
-        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
-        {
-            isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
+      
+        isFacingRight = !isFacingRight; 
+        transform.Rotate(0f, 180f, 0f);   
+    }   
             
-        }
-    }
+        
+
+       
+    
 }
