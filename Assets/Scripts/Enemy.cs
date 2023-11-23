@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
  
  public int maxHealth;
  int currentHealth;
+ static public int enemiesDefeated = 0;
 
  //Used for Enemies NOT destroyable surfaces.
  //Same as Destroy script but for enemies.
@@ -23,6 +24,7 @@ public class Enemy : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die();
+            
         }
     }
 
@@ -30,7 +32,9 @@ public class Enemy : MonoBehaviour
     {
         Debug.Log("Enemy Died");
         Destroy(gameObject);
+        enemiesDefeated++;
+
     }
 
-    
+   
 }
