@@ -11,17 +11,21 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
 
+    [SerializeField] private AudioSource jumpSound;
+
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal"); //For Left and Right to Work. 
 
         if (Input.GetButtonDown("Jump") && IsGrounded()) //"Jump" is the SpaceBar, can be changed in settings.
         {
+            jumpSound.Play();
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
         }
                                                                 
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f) //These Two Jumps are to have controlled Jump Heights Based on How long You Hold it Down For.
         {
+            jumpSound.Play();
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
 
