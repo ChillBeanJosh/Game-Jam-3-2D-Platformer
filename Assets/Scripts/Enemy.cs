@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            monsterSound.Play();
             Die();
             
         }
@@ -32,7 +33,7 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        monsterSound.Play();
+        
         Debug.Log("Enemy Died");
         Destroy(gameObject);
         enemiesDefeated++;
