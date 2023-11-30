@@ -10,7 +10,7 @@ public class AttackPoint : MonoBehaviour
 
   public float fireRate;
   float nextFire;
-
+  [SerializeField] AudioSource projectile;
   
     // Update is called once per frame
     void Update()
@@ -28,6 +28,8 @@ public class AttackPoint : MonoBehaviour
     {
         if (Time.time > nextFire)
         {
+            projectile.Play();
+            
             nextFire = Time.time + fireRate; //Controls the time it takes to shoot.
         
             Instantiate(manaPrefab, firePoint.position, firePoint.rotation); //Causes the Projectile to Spawn at the firePoint Transformation.

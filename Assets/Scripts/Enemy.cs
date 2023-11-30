@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
  int currentHealth;
  static public int enemiesDefeated = 0;
 
+ [SerializeField] AudioSource monsterSound;
+
  //Used for Enemies NOT destroyable surfaces.
  //Same as Destroy script but for enemies.
 
@@ -23,6 +25,7 @@ public class Enemy : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            monsterSound.Play();
             Die();
             
         }
@@ -30,6 +33,7 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
+        
         Debug.Log("Enemy Died");
         Destroy(gameObject);
         enemiesDefeated++;

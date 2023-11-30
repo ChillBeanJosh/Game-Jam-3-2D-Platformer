@@ -13,6 +13,8 @@ public class PlayerCombat : MonoBehaviour
 
     public float meleeRate = 2f;
     float nextMeleeAttack = 0f;
+    [SerializeField] private AudioSource attackSound;
+    [SerializeField] private AudioSource monsterHitSound;
 
     void Update()
     {
@@ -20,6 +22,7 @@ public class PlayerCombat : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Q)) //Attack Key for Melee Attack.
           {
+            attackSound.Play();
             Attack();
             nextMeleeAttack = Time.time + 1f / meleeRate; //Melee Cooldown.
           }   
@@ -33,6 +36,7 @@ public class PlayerCombat : MonoBehaviour
         foreach(Collider2D enemy in hitEnemies)
         {
            enemy.GetComponent<Enemy>().TakeDamage(attackDamage); //calculates the damage using Enemy Script.
+           monsterHitSound.Play();
            Debug.Log("We hit " + enemy.name);
         }
     }
