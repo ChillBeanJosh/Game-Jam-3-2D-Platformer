@@ -8,6 +8,7 @@ public class PlayerCombat : MonoBehaviour
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
+    public Animator animator;
 
     public int attackDamage;
 
@@ -20,6 +21,7 @@ public class PlayerCombat : MonoBehaviour
     {
         if(Time.time >= nextMeleeAttack)
         {
+
             if (Input.GetKeyDown(KeyCode.Q)) //Attack Key for Melee Attack.
           {
             attackSound.Play();
@@ -31,6 +33,9 @@ public class PlayerCombat : MonoBehaviour
 
     void Attack()
     {
+
+        animator.SetTrigger("Attack");
+
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers); //Creates an array to only allow Objects tagged "Enemy" to be hit.
 
         foreach(Collider2D enemy in hitEnemies)

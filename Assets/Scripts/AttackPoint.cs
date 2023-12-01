@@ -11,6 +11,7 @@ public class AttackPoint : MonoBehaviour
   public float fireRate;
   float nextFire;
   [SerializeField] AudioSource projectile;
+  public Animator animator;
   
     // Update is called once per frame
     void Update()
@@ -28,6 +29,8 @@ public class AttackPoint : MonoBehaviour
     {
         if (Time.time > nextFire)
         {
+            animator.SetTrigger("Fire");
+            
             projectile.Play();
             
             nextFire = Time.time + fireRate; //Controls the time it takes to shoot.

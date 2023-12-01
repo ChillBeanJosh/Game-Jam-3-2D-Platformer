@@ -12,10 +12,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
 
     [SerializeField] private AudioSource jumpSound;
+    public Animator animator;
 
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal"); //For Left and Right to Work. 
+
+        animator.SetFloat("Speed", Mathf.Abs(horizontal)); //allows move animator to work.
 
         if (Input.GetButtonDown("Jump") && IsGrounded()) //"Jump" is the SpaceBar, can be changed in settings.
         {
