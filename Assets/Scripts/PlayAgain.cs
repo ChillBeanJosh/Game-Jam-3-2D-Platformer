@@ -7,6 +7,7 @@ public class PlayAgain : MonoBehaviour
 {
   public void GameAgain()
   {
+    Enemy.enemiesDefeated = 0;
     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 4);
   }
 
